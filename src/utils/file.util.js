@@ -1,17 +1,26 @@
-import { promises as fs } from 'fs';
+import fs from 'fs/promises';
+import path from 'path';
 
-export const readFile = async (path) => {
-  try {
-    return await fs.readFile(path, 'utf-8');
-  } catch (error) {
-    throw new Error(`No pudimos abrir el archivo en la ruta ${path}`);
+export class FileUtil {
+  static async readJsonFile(filePath) {
+    try {
+      const data = await fs.readFile(filePath, 'utf8');
+      return JSON.parse(data);
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        return [];
+      }
+      throw error;
+    }
   }
-};
 
-export const writeFile = async (path, data) => {
-  try {
-    await fs.writeFile(path, data, 'utf-8');
-  } catch (error) {
-    throw new Error(`No pudimos escribir en el archivo en la ruta ${path}`);
+  static async writeJsonFile(filePath, data) {
+    try {
+      const dirPath = path.dirname(filePath);
+      await fs.mkdir(dirPath, { recursive: true });
+      await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+    } catch (error) {
+      throw error;
+    }
   }
-};
+}

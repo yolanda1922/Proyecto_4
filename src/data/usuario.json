@@ -1,19 +1,2 @@
-[
-  {
-    "id": 1,
-    "nombre": "Hotel Nuevo",
-    "direccion": "Calle Falsa 123",
-    "pais": "España",
-    "ciudad": "Madrid",
-    "telefono": "+34 987 654 321",
-    "categoria": 3,
-    "descripcion": "Hotel de prueba",
-    "precio_noche": 80,
-    "disponibilidad": true,
-    "servicios": [
-    
-    ]
-  }
-]
-
+[]
    

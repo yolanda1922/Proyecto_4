@@ -1,11 +1,21 @@
-import express from "express";
+import express from 'express';
 import userRouter from './routers/user.router.js';
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+// Middleware para parsear JSON
 app.use(express.json());
-app.use(userRouter);
 
-app.listen(3000, () => {
-  console.log("Servidor corriendo en el puerto  3000");
+// Rutas
+app.use('/api/users', userRouter);
+
+// Ruta de prueba
+app.get('/', (req, res) => {
+  res.json({ message: 'CRUD API funcionando correctamente' });
+});
+
+// Iniciar servidor
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
