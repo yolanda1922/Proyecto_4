@@ -1,7 +1,10 @@
 ﻿# Reserva-CRUD
- Crear un base de daatos local para una resrva de hortel-+.
+ Crear un base de daatos local para una resrva de hortel.
+ 
  Usar los end points para CRUD (Crear,leer,actualizar y eliminar) .
- Uso de contro deversiones en Github.
+ 
+ Uso de controi de versiones en Github.
 
  
+
 
